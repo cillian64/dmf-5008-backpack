@@ -1,20 +1,18 @@
 /*****************************************************************************
+SED1335 LCD controller library.
 
-MultiKitB: AVR Oscilloscope and Development Kit
+Original library written by:
+Knut Baardsen @ Baardsen Software, Norway
 
-Gabotronics C.A.
-February 2009
+Optimized and improved by:
+Copyright 2009 Gabriel Anzziani.  February 2009, Gabotronics C.A.
+www.gabotronics.com, email: gabriel@gabotronics.com
 
-Copyright 2009 Gabriel Anzziani
+Clean up and ported to STM32F0 by:
+David Turner, February 2017 code@dwt27.co.uk
 
-This program is distributed under the terms of the GNU General Public License 
-
-www.gabotronics.com
-email me at: gabriel@gabotronics.com
-
-This is the SED1335 LCD controller library, it is an optimized and improved
-version of the original library written by:
-Knut Baardsen @ Baardsen Software, Norway                               */
+This program is distributed under the terms of the GNU General Public License
+***********************************************************************/
 
 /***********************************************************************
 Includes
@@ -104,14 +102,14 @@ unsigned char lcd_read_data(void) {
     LCDDATADDR = 0x00;
     asm("nop");
     data = LCDDATAPIN;
-    LCDCTLPORT |= RD;     
+    LCDCTLPORT |= RD;
     LCDDATADDR = 0xff;
     return data;
 }
 
 /***********************************************************************
-Initialize the LCD controller. Read the documentation for the 
-controller in use. If any other than SED1335 values can be wrong ! 
+Initialize the LCD controller. Read the documentation for the
+controller in use. If any other than SED1335 values can be wrong !
 ***********************************************************************/
 void lcd_init(byte mode) {
     unsigned int SAD3;
@@ -129,12 +127,12 @@ void lcd_init(byte mode) {
     lcd_write_data((WF<<7)+(0x07 & FX));        // P2: WF 0 0 0 0 FX2 FX1 FX0
     lcd_write_data(0x0F & FY);                  // P3: 0 0 0 0 FY3 FY2 FY1 FY0
     lcd_write_data(CR);                         // P4: C/R
-    lcd_write_data(TCR);                        // P5: TC/R   
+    lcd_write_data(TCR);                        // P5: TC/R
     lcd_write_data(LF);                         // P6: L/F
     lcd_write_data(APL);                        // P7: APL
     lcd_write_data(APH);                        // P8: APH
     // Scroll
-    lcd_write_command(SCROLL); 
+    lcd_write_command(SCROLL);
     lcd_write_data(SAD1L);                  // SAD1L
     lcd_write_data(SAD1H);                  // SAD1H
     lcd_write_data(SL1);                    // SL1
@@ -154,7 +152,7 @@ void lcd_init(byte mode) {
     lcd_write_data(SAD4H);                  // SAD4H
     // Horizontal scroll
     lcd_write_command(HDOT_SCR);
-    lcd_write_data(0x00);     
+    lcd_write_data(0x00);
     // Overlay
     lcd_write_command(OVLAY);
     lcd_write_data(mode);           // mode=TEXT:       Screen 1 & 3 Text,
@@ -167,15 +165,15 @@ void lcd_init(byte mode) {
     // Display On/Off I
     lcd_write_command(DISP_OFF);    // Display off
     lcd_write_data(0x14);
-    // Cursor write  
+    // Cursor write
     lcd_write_command(CSRW);
-    lcd_write_data(0x00); 
+    lcd_write_data(0x00);
     lcd_write_data(0x00);
     // Cursor format
-    lcd_write_command(CSRFORM); 
-    lcd_write_data(0x05);    
-    lcd_write_data(0x87);    
-    // Curson direction  
+    lcd_write_command(CSRFORM);
+    lcd_write_data(0x05);
+    lcd_write_data(0x87);
+    // Curson direction
     lcd_write_command(CSR_RIGHT);
     // Display On/Off II
     lcd_write_command(DISP_ON);     // Display on
@@ -193,10 +191,10 @@ Clears the text layer / screen.
 void lcd_clear_text(void) {
     unsigned int i;
     lcd_write_command(CSR_RIGHT);
-    lcd_write_command(CSRW);   
-    lcd_write_data(SAD1L);       
-    lcd_write_data(SAD1H);      
-    lcd_write_command(MWRITE);   
+    lcd_write_command(CSRW);
+    lcd_write_data(SAD1L);
+    lcd_write_data(SAD1H);
+    lcd_write_command(MWRITE);
     for(i=0; i<APL*(LCD_Y_SIZE/FY); i++) lcd_write_data(' ');
 }
 
@@ -218,15 +216,18 @@ void lcd_goto(byte column, byte row) {
 /***********************************************************************
 Write strings to the text layer. Set position with lcd_goto.
 Text will wrap if to long to show on one line.
+Read string from normal RAM.
 **********************************************************************
 void lcd_write_string(char *ptr) {
     lcd_write_command(MWRITE);
     while (*ptr != 0x00) lcd_write_data(*ptr++);
 }
+*/
 
 /***********************************************************************
 Write strings to the text layer. Set position with lcd_goto.
-Text will wrap if to long to show on one line. DATA FROM PMEM
+Text will wrap if to long to show on one line.
+Read string from program memory.
 ***********************************************************************/
 void lcd_puts(const PROGMEM char *ptr) {
     lcd_write_command(MWRITE);
@@ -234,7 +235,9 @@ void lcd_puts(const PROGMEM char *ptr) {
 }
 
 
-// Print Number
+/***********************************************************************
+Print a positive integer 0-255 to the text layer.
+***********************************************************************/
 void PrintN(byte Data) {
 	byte D1=0,D2=0,D3=0;
 	while (Data>=100)	{ D3++; Data-=100; }
@@ -264,8 +267,8 @@ void lcd_clear_graphics(void) {
     unsigned int i;
     lcd_write_command(CSR_RIGHT);
     lcd_write_command(CSRW);    // Set cursor address
-    lcd_write_data(SAD2L);          
-    lcd_write_data(SAD2H);      
+    lcd_write_data(SAD2L);
+    lcd_write_data(SAD2H);
     lcd_write_command(MWRITE);    // Write to display memory
     LCDCTLPORT &= ~(A0);
     LCDDATAPORT = 0;
@@ -284,8 +287,8 @@ void lcd_clear_graphics2(void) {
     unsigned int i;
     lcd_write_command(CSR_RIGHT);
     lcd_write_command(CSRW);    // Set cursor address
-    lcd_write_data(0);          
-    lcd_write_data(8);      
+    lcd_write_data(0);
+    lcd_write_data(8);
     lcd_write_command(MWRITE);    // Write to display memory
     LCDCTLPORT &= ~(A0);
     LCDDATAPORT = 0;
@@ -328,12 +331,12 @@ void pixel(byte x, byte y, byte show) {
 
     if(show==255 || show>prandom()) data |= Offset;   // SET
     else data &= ~Offset;               // CLEAR
-               
+
     lcd_write_command(CSRW);            // Set cursor address
-    lcd_write_data(low);    
-    lcd_write_data(high);   
+    lcd_write_data(low);
+    lcd_write_data(high);
     lcd_write_command(MWRITE);
-    lcd_write_data(data); 
+    lcd_write_data(data);
 }
 
 /***********************************************************************
@@ -448,16 +451,16 @@ void put_2char(byte c1, byte c2) {
     else a1=0;
     a2=(unsigned int)(c2-0x20)*5;
     lcd_write_command(MWRITE);
-    lcd_write_data((byte)(EENibble(a2++)<<4) | 
-                          EENibble(a1++)); 
     lcd_write_data((byte)(EENibble(a2++)<<4) |
-                          EENibble(a1++)); 
+                          EENibble(a1++));
     lcd_write_data((byte)(EENibble(a2++)<<4) |
-                          EENibble(a1++)); 
+                          EENibble(a1++));
     lcd_write_data((byte)(EENibble(a2++)<<4) |
-                          EENibble(a1++)); 
+                          EENibble(a1++));
     lcd_write_data((byte)(EENibble(a2++)<<4) |
-                          EENibble(a1++)); 
+                          EENibble(a1++));
+    lcd_write_data((byte)(EENibble(a2++)<<4) |
+                          EENibble(a1++));
 }
 
 /*// Print small font text
@@ -480,8 +483,3 @@ void tiny_printp(byte x, byte y, const PROGMEM char *ptr) {
         if(c2==0) break;
     }
 }
-
-
-/***********************************************************************
-Happy end :-)
-***********************************************************************/

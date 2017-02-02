@@ -1,24 +1,21 @@
-/***********************************************************************
+/*****************************************************************************
+SED1335 LCD controller library.
 
-MultiKit: AVR Oscilloscope and Development Kit
+Original library written by:
+Knut Baardsen @ Baardsen Software, Norway
 
-Gabotronics C.A.
-February 2009
+Optimized and improved by:
+Copyright 2009 Gabriel Anzziani.  February 2009, Gabotronics C.A.
+www.gabotronics.com, email: gabriel@gabotronics.com
 
-Copyright 2009 Gabriel Anzziani
+Clean up and ported to STM32F0 by:
+David Turner, February 2017 code@dwt27.co.uk
 
 This program is distributed under the terms of the GNU General Public License
-
-www.gabotronics.com
-email me at: gabriel@gabotronics.com
-
-Gabriel Anzziani - gabriel@gabotronics.com
-based on library from: Knut Baardsen @ Baardsen Software, Norway
-
-*****************************************************************************/
+***********************************************************************/
 
 /***********************************************************************
-Port, PINS and LCD defines
+Port, PINS and LCD defines 
 ***********************************************************************/
 
 #include <avr/pgmspace.h>
