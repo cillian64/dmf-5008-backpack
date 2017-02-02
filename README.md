@@ -1,6 +1,10 @@
 # dmf-5008-backpack
 Controller backpack for Optrex DMF-5008N-S display
 
+![Front of the panel](panel_front.png)
+
+![Back of the panel](panel_back.png)
+
 # Documents
  - [DMF 5000 series manual](http://www.rigelcorp.com/8051/Optrex_Dmf5000.pdf)
  - [Datasheet](http://www.pollin.de/shop/downloads/D120367D.PDF) (in German)
