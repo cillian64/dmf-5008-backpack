@@ -1,4 +1,4 @@
-update=Thursday, 02 February 2017 'pmt' 18:40:38
+update=Thursday, 09 February 2017 'pmt' 23:18:43
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
@@ -56,5 +58,5 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
-[general]
-version=1
+LibName30=agg-kicad/lib/ic/power/max14521
+LibName31=agg-kicad/lib/ic/power/tlv61220

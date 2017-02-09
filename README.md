@@ -14,18 +14,21 @@ Controller backpack for Optrex DMF-5008N-S display
  - [Example PCB](http://www.gabotronics.com/discontinued-products/pcb-avr-xmegalab.htm)
 
 # Interface and code
- - Accept ASCII characters and print them as normal, maybe even compatible with
-   the Sparkfun LCD backpack protocol.
- - Accept some sort of control characters to do drawing primitives
+ - Accept ASCII characters and print them as normal, compatible with the
+   Sparkfun LCD backpack protocol.
+ - Maybe accept some sort of control characters to do drawing primitives
  - Maybe implement some of the ASCII drawing character code-pages.
- - Do I accept USART and SPI slave the whole time? Or have a jumper?
+ - Just accept USART, no point in SPI slave.
  - Probably worth using a modified version of the gabotronics library.
 
-# Parts
- - STM32F405RG is 48-pin LQFP, cheapest F4 with FSMC, about £6.50
- - Or I use a 48-pin F0 for £1 and bit-bang it. Sounds like the interface won't
-   mine if I go too slow, and doesn't seem too complicated.
- - MIC4832 is used by example schematic for the EL step-up but that doesn't
-   seem to exist anymore.
- - Gabotronics EL board uses MIC4826 or MIC4827 or MIC4832 for different
-   voltages, all of which don't exist anymore.
+# Parts and notes
+ - STM32F042C6T6 in LQFP-48 should be able to bit-bang the parallel interface,
+   do UART, chat to the I2C EL inverter, and do USB CDC.
+ - MAX14521 is the only EL inverter with appropriate voltage which I can easily
+   acquire.  Nice that I can dim it over I2C. Run it off 3v3. Ground hoop it.
+ - TLV1220 will easily provide the 20mA I need on 5V for the display
+ - Need a simple 3v3 LDO for running off 5V sources
+ - Level conversion: all the pins on teh display I talk to are TTL, which means
+   they will accept 2.5V as a high signal.  Only question is whether the STM32
+   has enough 5V tolerant pins for receiving the TTL signals.
+ -
