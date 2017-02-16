@@ -1,4 +1,4 @@
-update=Thursday, 16 February 2017 'pmt' 22:56:37
+update=Thursday, 16 February 2017 'pmt' 23:21:19
 version=1
 last_client=kicad
 [pcbnew]
@@ -61,3 +61,5 @@ LibName29=valves
 LibName30=agg-kicad/lib/ic/power/tlv61220
 LibName31=agg-kicad/lib/ic/microcontroller/stm32f0xxcxtx
 LibName32=agg-kicad/lib/ic/power/hv823
+LibName33=agg-kicad/lib/connector/swd_tc
+LibName34=agg-kicad/lib/connector/microusb
