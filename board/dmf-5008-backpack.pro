@@ -1,4 +1,4 @@
-update=Thursday, 09 February 2017 'pmt' 23:18:43
+update=Thursday, 16 February 2017 'pmt' 22:56:37
 version=1
 last_client=kicad
 [pcbnew]
@@ -58,5 +58,6 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
-LibName30=agg-kicad/lib/ic/power/max14521
-LibName31=agg-kicad/lib/ic/power/tlv61220
+LibName30=agg-kicad/lib/ic/power/tlv61220
+LibName31=agg-kicad/lib/ic/microcontroller/stm32f0xxcxtx
+LibName32=agg-kicad/lib/ic/power/hv823

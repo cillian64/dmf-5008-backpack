@@ -28,8 +28,9 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:max14521
 LIBS:tlv61220
+LIBS:stm32f0xxcxtx
+LIBS:hv823
 LIBS:dmf-5008-backpack-cache
 EELAYER 26 0
 EELAYER END
@@ -54,18 +55,6 @@ F 1 "CONN_01X25" V 10550 3050 50  0000 C CNN
 F 2 "footprints:lcd_full" H 10450 3050 50  0001 C CNN
 F 3 "" H 10450 3050 50  0000 C CNN
 	1    10450 3050
-	1    0    0    -1  
-$EndComp
-$Comp
-L MAX14521 IC?
-U 1 1 589CF444
-P 4900 3950
-F 0 "IC?" H 4900 5075 50  0000 C CNN
-F 1 "MAX14521" H 4900 4984 50  0000 C CNN
-F 2 "agg:QFN-24-EP-MAX" H -50 -1150 50  0001 L CNN
-F 3 "https://datasheets.maximintegrated.com/en/ds/MAX14521E.pdf" H -50 -1250 50  0001 L CNN
-F 4 "" H -50 -1350 50  0001 L CNN "Farnell"
-	1    4900 3950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -168,32 +157,10 @@ Wire Wire Line
 	5450 1450 5450 1500
 Wire Wire Line
 	5450 1500 5400 1500
-$Comp
-L +3V3 #PWR?
-U 1 1 589CFBC0
-P 4450 3000
-F 0 "#PWR?" H 450 100 50  0001 C CNN
-F 1 "+3V3" H 4465 3173 50  0000 C CNN
-F 2 "" H 450 250 50  0000 C CNN
-F 3 "" H 450 250 50  0000 C CNN
-	1    4450 3000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 3000 4450 3050
-Wire Wire Line
-	4450 3050 4500 3050
 Text Label 10250 1850 2    60   ~ 0
-EL1
+EL_A
 Text Label 10250 1950 2    60   ~ 0
-EL2
-Text Label 5300 3450 0    60   ~ 0
-EL1
-Text Label 5300 3850 0    60   ~ 0
-EL2
-NoConn ~ 5300 3550
-NoConn ~ 5300 3650
-NoConn ~ 5300 3750
+EL_B
 $Comp
 L +5V #PWR?
 U 1 1 589CFE02
@@ -228,4 +195,180 @@ Wire Wire Line
 Wire Wire Line
 	9950 2950 10250 2950
 Connection ~ 9950 2550
+$Comp
+L STM32F0xxCxTx IC?
+U 1 1 589F4142
+P 3550 4650
+F 0 "IC?" H 3550 6575 50  0000 C CNN
+F 1 "STM32F042C6T6" H 3550 6484 50  0000 C CNN
+F 2 "agg:LQFP-48" H -400 -1400 50  0001 L CNN
+F 3 "http://www.st.com/resource/en/datasheet/stm32f042c6.pdf" H -400 -1500 50  0001 L CNN
+F 4 "110-6612" H 3550 4650 60  0001 C CNN "RS"
+	1    3550 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 58A2450D
+P 1650 1550
+F 0 "#PWR?" H -200 -200 50  0001 C CNN
+F 1 "GND" H 1655 1377 50  0000 C CNN
+F 2 "" H -200 50  50  0000 C CNN
+F 3 "" H -200 50  50  0000 C CNN
+	1    1650 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1650 1550 1650 1500
+Wire Wire Line
+	1650 1500 1600 1500
+Text Label 1650 1400 0    60   ~ 0
+UART_IN
+Wire Wire Line
+	1650 1400 1600 1400
+Text Label 4300 4200 0    60   ~ 0
+UART_IN
+Text Label 4250 4650 0    60   ~ 0
+EL_DISABLE
+$Comp
+L HV823 IC?
+U 1 1 58A62E88
+P 7200 3650
+F 0 "IC?" H 7200 4075 50  0000 C CNN
+F 1 "HV823" H 7200 3984 50  0000 C CNN
+F 2 "agg:SOIC-8" H -200 -750 50  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/HV823%20C082213.pdf" H -200 -850 50  0001 L CNN
+	1    7200 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR?
+U 1 1 58A62F84
+P 5850 3400
+F 0 "#PWR?" H 5900 3450 50  0001 C CNN
+F 1 "+5V" H 5865 3573 50  0000 C CNN
+F 2 "" H -1200 -250 50  0000 C CNN
+F 3 "" H -1200 -250 50  0000 C CNN
+	1    5850 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 58A62FAA
+P 5850 3650
+F 0 "C?" H 5965 3696 50  0000 L CNN
+F 1 "100n" H 5965 3605 50  0000 L CNN
+F 2 "" H -162 150 50  0000 C CNN
+F 3 "" H -200 300 50  0000 C CNN
+	1    5850 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 3400 5850 3500
+Wire Wire Line
+	5850 3450 6700 3450
+Connection ~ 5850 3450
+$Comp
+L GND #PWR?
+U 1 1 58A63041
+P 5850 3800
+F 0 "#PWR?" H 5900 3850 50  0001 C CNN
+F 1 "GND" H 5855 3627 50  0000 C CNN
+F 2 "" H -200 -100 50  0000 C CNN
+F 3 "" H -200 -100 50  0000 C CNN
+	1    5850 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L R_Small R?
+U 1 1 58A630A2
+P 6550 3750
+F 0 "R?" V 6354 3750 50  0000 C CNN
+F 1 "2M" V 6445 3750 50  0000 C CNN
+F 2 "" H 350 -250 50  0000 C CNN
+F 3 "" H 350 -250 50  0000 C CNN
+	1    6550 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L R_Small R?
+U 1 1 58A6314C
+P 6550 3850
+F 0 "R?" V 6350 3850 50  0000 C CNN
+F 1 "750k" V 6450 3850 50  0000 C CNN
+F 2 "" H 150 -100 50  0000 C CNN
+F 3 "" H 150 -100 50  0000 C CNN
+	1    6550 3850
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6450 3750 6450 3850
+Text Label 6200 4200 2    60   ~ 0
+EL_DISABLE
+Wire Wire Line
+	6200 4200 6350 4200
+Wire Wire Line
+	6350 4200 6350 3800
+Wire Wire Line
+	6350 3800 6450 3800
+Connection ~ 6450 3800
+$Comp
+L GND #PWR?
+U 1 1 58A6395F
+P 6700 3550
+F 0 "#PWR?" H 6750 3600 50  0001 C CNN
+F 1 "GND" H 6705 3377 50  0001 C CNN
+F 2 "" H -350 -50 50  0000 C CNN
+F 3 "" H -350 -50 50  0000 C CNN
+	1    6700 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 3750 6700 3750
+Wire Wire Line
+	6700 3850 6650 3850
+$Comp
+L INDUCTOR_SMALL L?
+U 1 1 58A63DBE
+P 8050 3150
+F 0 "L?" V 8004 3227 50  0000 L CNN
+F 1 "INDUCTOR_SMALL" V 8095 3227 50  0000 L CNN
+F 2 "" H 150 -100 50  0000 C CNN
+F 3 "" H 150 -100 50  0000 C CNN
+	1    8050 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7700 3450 8050 3450
+$Comp
+L +5V #PWR?
+U 1 1 58A6416F
+P 8050 2900
+F 0 "#PWR?" H 8100 2950 50  0001 C CNN
+F 1 "+5V" H 8065 3073 50  0000 C CNN
+F 2 "" H 700 100 50  0000 C CNN
+F 3 "" H 700 100 50  0000 C CNN
+	1    8050 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L D_Small D?
+U 1 1 58A64241
+P 7800 3550
+F 0 "D?" H 7700 3500 50  0000 C CNN
+F 1 "D_Small" H 8000 3500 50  0000 C CNN
+F 2 "" V -100 150 50  0000 C CNN
+F 3 "" V -100 150 50  0000 C CNN
+	1    7800 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 3400 8050 3550
+Wire Wire Line
+	8050 3550 7900 3550
+Connection ~ 8050 3450
+Text Label 7700 3750 0    60   ~ 0
+EL_A
+Text Label 7700 3850 0    60   ~ 0
+EL_B
 $EndSCHEMATC
