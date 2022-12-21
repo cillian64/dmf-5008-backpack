@@ -1,3 +1,6 @@
 [submodule "board/agg-kicad"]
 	path = board/agg-kicad
 	url = https://github.com/adamgreig/agg-kicad.git
+[submodule "RP_Silicon_KiCad"]
+	path = RP_Silicon_KiCad
+	url = https://github.com/HeadBoffin/RP_Silicon_KiCad.git

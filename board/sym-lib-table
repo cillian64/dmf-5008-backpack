@@ -29,6 +29,5 @@
   (lib (name "atmel")(type "Legacy")(uri "/Users/dwt27/Library/Application Support/kicad/library/atmel.lib")(options "")(descr ""))
   (lib (name "contrib")(type "Legacy")(uri "/Users/dwt27/Library/Application Support/kicad/library/contrib.lib")(options "")(descr ""))
   (lib (name "valves")(type "Legacy")(uri "/Users/dwt27/Library/Application Support/kicad/library/valves.lib")(options "")(descr ""))
-  (lib (name "swd_tc")(type "Legacy")(uri "${KIPRJMOD}/agg-kicad/lib/connector/swd_tc.lib")(options "")(descr ""))
-  (lib (name "microusb")(type "Legacy")(uri "${KIPRJMOD}/agg-kicad/lib/connector/microusb.lib")(options "")(descr ""))
+  (lib (name "rp")(type "Legacy")(uri "${KIPRJMOD}/../RP_Silicon_KiCad/KiCadLibraries/MCU_RaspberryPi_and_Boards.lib")(options "")(descr ""))
 )

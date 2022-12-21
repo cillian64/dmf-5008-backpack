@@ -1,4 +1,6 @@
 (fp_lib_table
-  (lib (name footprints)(type KiCad)(uri ${KIPRJMOD}/footprints.pretty)(options "")(descr ""))
-  (lib (name agg)(type KiCad)(uri ${KIPRJMOD}/agg-kicad/agg.pretty)(options "")(descr ""))
+  (lib (name "footprints")(type "KiCad")(uri "${KIPRJMOD}/footprints.pretty")(options "")(descr ""))
+  (lib (name "agg")(type "KiCad")(uri "${KIPRJMOD}/agg-kicad/agg.pretty")(options "")(descr ""))
+  (lib (name "rp")(type "KiCad")(uri "/Users/dwt27/git/dmf-5008-backpack/RP_Silicon_KiCad/KiCadLibraries/MCU_RaspberryPi_and_Boards.pretty")(options "")(descr ""))
+  (lib (name "EE14_xformer")(type "KiCad")(uri "${KIPRJMOD}/EE14_xformer.pretty")(options "")(descr ""))
 )
