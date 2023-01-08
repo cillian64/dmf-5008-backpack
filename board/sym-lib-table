@@ -30,4 +30,5 @@
   (lib (name "contrib")(type "Legacy")(uri "/Users/dwt27/Library/Application Support/kicad/library/contrib.lib")(options "")(descr ""))
   (lib (name "valves")(type "Legacy")(uri "/Users/dwt27/Library/Application Support/kicad/library/valves.lib")(options "")(descr ""))
   (lib (name "rp")(type "Legacy")(uri "${KIPRJMOD}/../RP_Silicon_KiCad/KiCadLibraries/MCU_RaspberryPi_and_Boards.lib")(options "")(descr ""))
+  (lib (name "MIC4830")(type "KiCad")(uri "${KIPRJMOD}/MIC4830.kicad_sym")(options "")(descr ""))
 )
