@@ -55,7 +55,35 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "copper_edge_clearance|103000000|118000000|d3d44b83-4a8c-4f69-8bc3-020b0bc09c5d|a20f2368-edeb-4971-a808-85a8154bcbb1",
+        "copper_edge_clearance|103000000|124000000|d3d44b83-4a8c-4f69-8bc3-020b0bc09c5d|05c5464f-1691-4a74-87ba-3242427a85f0",
+        "copper_edge_clearance|103000000|75500000|d3d44b83-4a8c-4f69-8bc3-020b0bc09c5d|0ceb89fc-a97c-4a80-bc92-ee1becf73a4d",
+        "copper_edge_clearance|105500000|68500000|3b56943c-fcf9-4a09-9bac-15cfe765b3dc|8e1d03b8-58b4-43be-a0f6-008b359e8529",
+        "copper_edge_clearance|185000000|129000000|3858959a-5d0d-4f66-9f0e-75e8a356930b|e0453309-5244-4c89-aa80-d55a98c1e1b2",
+        "copper_edge_clearance|185000000|66000000|3858959a-5d0d-4f66-9f0e-75e8a356930b|56f4340e-a65c-4b25-9bdd-60fc06a53040",
+        "copper_edge_clearance|185000000|86250000|3858959a-5d0d-4f66-9f0e-75e8a356930b|ed396385-b83d-4914-8f7d-dec53804155e",
+        "items_not_allowed|104500000|118000000|a20f2368-edeb-4971-a808-85a8154bcbb1|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|104500000|75500000|0ceb89fc-a97c-4a80-bc92-ee1becf73a4d|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|100720000|b8972231-934e-4f67-839d-ff7324478805|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|103260000|f74229d2-4acb-419a-b969-89bf9966c91a|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|105800000|13d57c6e-aead-4404-9f93-d745c825fc5f|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|108340000|32c6adb1-634f-428a-8081-fd484341223b|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|65160000|cfe03bb9-503e-4de6-8ad8-6aa740b0f8fe|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|67700000|d031dab4-e0fd-4a4a-bd3e-b5a3ca4a3887|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|70240000|51b96fb5-dde6-4a50-99e7-efa862a6aa63|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|72780000|3feb9015-df78-48cc-b206-2f46f2afc694|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|75320000|c8ad9d2b-be26-4c66-88c0-b0d1e3b75a15|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|77860000|75ce5c7b-b760-44b8-9cbe-3682a6ca5267|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|80400000|45b0161d-19dc-474d-8adc-9a26f1ac3b9c|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|93100000|9dbd161c-b813-4f9d-84aa-3dbeba919c19|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|95640000|86d0d105-1f2a-4abf-be28-9e8a596ea715|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|120360000|98180000|a5209b15-7327-4815-b05e-c5762a7f1a0b|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|126825000|65780000|4efd0ae8-bb00-4f42-a3d7-108e73b0f437|00000000-0000-0000-0000-000000000000",
+        "items_not_allowed|131675000|65780000|1f131f21-a33b-409b-b833-99dd9e9ecbb7|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|125842500|135000000|cb1458a1-c5e6-4ba1-af52-78abf7e1f3f0|ba91d139-5e45-4712-b3be-efd8f4925213",
+        "silk_over_copper|135042500|135000000|cb1458a1-c5e6-4ba1-af52-78abf7e1f3f0|6ebf6426-dd14-4176-b25f-0fde2d231094"
+      ],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
@@ -111,17 +139,19 @@
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
-        "min_through_hole_diameter": 0.3,
+        "min_through_hole_diameter": 0.19999999999999998,
         "min_track_width": 0.19999999999999998,
-        "min_via_annular_width": 0.13,
+        "min_via_annular_width": 0.09999999999999999,
         "min_via_diameter": 0.39999999999999997,
         "use_height_for_length_calcs": true
       },
       "track_widths": [
         0.0,
         0.2,
+        0.3,
         0.5,
-        1.0
+        1.0,
+        2.0
       ],
       "via_dimensions": [
         {
