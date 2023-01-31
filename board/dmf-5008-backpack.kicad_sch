@@ -2001,9 +2001,9 @@
   )
 
   (no_connect (at 85.09 143.51) (uuid 381ed126-09fc-4307-bfa8-c2cf7de667d4))
-  (no_connect (at 85.09 146.05) (uuid 381ed126-09fc-4307-bfa8-c2cf7de667d4))
-  (no_connect (at 85.09 140.97) (uuid 381ed126-09fc-4307-bfa8-c2cf7de667d4))
-  (no_connect (at 85.09 148.59) (uuid 381ed126-09fc-4307-bfa8-c2cf7de667d4))
+  (no_connect (at 85.09 146.05) (uuid 381ed126-09fc-4307-bfa8-c2cf7de667d5))
+  (no_connect (at 85.09 140.97) (uuid 381ed126-09fc-4307-bfa8-c2cf7de667d6))
+  (no_connect (at 85.09 148.59) (uuid 381ed126-09fc-4307-bfa8-c2cf7de667d7))
   (no_connect (at 67.31 179.07) (uuid 70eeefb6-fc83-4499-b798-98fe8b4eb5d2))
   (no_connect (at 64.77 179.07) (uuid 70eeefb6-fc83-4499-b798-98fe8b4eb5d3))
   (no_connect (at 69.85 179.07) (uuid 70eeefb6-fc83-4499-b798-98fe8b4eb5d4))
@@ -3536,7 +3536,7 @@
     (property "Value" "10k TRIM" (id 1) (at 150.4442 143.383 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical" (id 2) (at 93.98 -90.17 0)
+    (property "Footprint" "Potentiometer_THT:Potentiometer_ACP_CA9-V10_Vertical" (id 2) (at 93.98 -90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (id 3) (at 93.98 -90.17 0))
@@ -6181,7 +6181,7 @@
       (reference "R34") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/00000000-0000-0000-0000-000058a6fe12"
-      (reference "RV1") (unit 1) (value "10k TRIM") (footprint "Potentiometer_THT:Potentiometer_Bourns_3386F_Vertical")
+      (reference "RV1") (unit 1) (value "10k TRIM") (footprint "Potentiometer_THT:Potentiometer_ACP_CA9-V10_Vertical")
     )
     (path "/ab27d000-3ee1-4092-bafb-2d8df5df3cbc"
       (reference "SW1") (unit 1) (value "RESET") (footprint "Button_Switch_THT:SW_PUSH_6mm")
